@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.4.0</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+
+
+	<groupId>br.com.totvs.gateway</groupId>
+	<artifactId>controle-escola-gateway</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>controle-escola-gateway</name>
+
+
+	<modules>
+		<module>controle-escola-domain</module>
+		<module>controle-escola-rest</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>br.com.totvs.gateway</groupId>
+				<artifactId>controle-escola-domain</artifactId>
+				<version>${project.version}</version>
+				<type>jar</type>
+			</dependency>
+
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>1.18.20</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.h2database</groupId>
+				<artifactId>h2</artifactId>
+				<version>1.4.200</version>
+			</dependency>
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger2</artifactId>
+				<version>2.9.2</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>20.0</version>
+			</dependency>
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger-ui</artifactId>
+				<version>2.9.2</version>
+				<scope>compile</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>
