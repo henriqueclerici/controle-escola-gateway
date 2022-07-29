@@ -35,22 +35,21 @@ public class AlunoFacadeImp implements AlunoFacade {
 			service.cadastrarAluno(aluno);
 			return AlunoDTOBuilder.builder().build(aluno);
 		} catch (Exception e) {
-			log.error("Erro na hora de buscar um aluno");
-			throw new IllegalArgumentException("Erro na hora de buscar um aluno", e);
+			log.error("Erro ao buscar um aluno");
+			throw new IllegalArgumentException("Erro ao buscar um aluno", e);
 
 		}
 	}
 
 	@Override
 	public List<AlunoDTO> listarAlunos() throws ControleEscolaException {
-		log.info("Iniciou a busca dos alunos");
+		log.info("Iniciou a busca por todos os alunos", AlunoFacadeImp.class);
 		try {
-			log.info("Iniciou a busca por todos os alunos", AlunoFacadeImp.class);
 			List<Aluno> listaAluno = service.listarAlunos();
 			return AlunoDTOBuilder.builder().build(listaAluno);
 		} catch (Exception e) {
-			log.error("Erro na hora de buscar um aluno", e);
-			throw new IllegalArgumentException("Erro na hora de buscar um aluno", e);
+			log.error("Erro ao buscar um aluno", e);
+			throw new IllegalArgumentException("Erro ao buscar um aluno", e);
 
 		}
 
@@ -62,21 +61,22 @@ public class AlunoFacadeImp implements AlunoFacade {
 		try {
 			service.excluirAluno();
 		} catch (Exception e) {
-			log.error("Erro na hora de buscar um aluno", e);
-			throw new IllegalArgumentException("Erro na hora de buscar um aluno", e);
+			log.error("Erro ao excluir um aluno", e);
+			throw new IllegalArgumentException("Erro ao excluir um aluno", e);
 
 		}
 	}
 
 	@Override
+	@Transactional
 	public AlunoDTO alterarAluno(AlunoCommand alunoCommand) throws ControleEscolaException {
 		log.info("Iniciou alteração de um usuário");
 		try {
 			Aluno aluno = AlunoFactory.builder().criarAluno(alunoCommand);
 			return AlunoDTOBuilder.builder().build(getService().alterarAluno(aluno));
 		} catch (Exception e) {
-			log.error("Erro na hora de buscar um aluno", e);
-			throw new IllegalArgumentException("Erro na hora de buscar um aluno", e);
+			log.error("Erro ao alterar um aluno", e);
+			throw new IllegalArgumentException("Erro ao alterar um aluno", e);
 		}
 
 	}

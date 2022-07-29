@@ -1,7 +1,9 @@
 D:\projetos\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\dto\AlunoRequest.java
 D:\projetos\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\exception\ControleEscolaException.java
 D:\projetos\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\builder\AlunoResponseBuilder.java
+D:\projetos\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\dto\MatricularAlunoRequest.java
 D:\projetos\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\ControleEscolaApplication.java
+D:\projetos\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\controller\ControleEscolaTurmaAlunoRest.java
 D:\projetos\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\swagger\SwaggerConfig.java
 D:\projetos\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\builder\TurmaResponseBuilder.java
 D:\projetos\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\exception\ControleEscolaInternalException.java
@@ -9,6 +11,7 @@ D:\projetos\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\to
 D:\projetos\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\controller\ControleEscolaAlunoRest.java
 D:\projetos\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\builder\TurmaCommandBuilder.java
 D:\projetos\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\dto\AlunoResponse.java
+D:\projetos\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\controller\ControleEscolaTurmaRest.java
 D:\projetos\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\dto\TurmaRequest.java
 D:\projetos\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\dto\TurmaResponse.java
 D:\projetos\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\builder\AlunoCommandBuilder.java
