@@ -31,7 +31,7 @@ public class Turma {
 
 	private String disciplina;
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
 			name = "ALUNO_TURMAS",
 			joinColumns = @JoinColumn(name = "turma_id"),
@@ -39,8 +39,8 @@ public class Turma {
 			)
 	private List<Aluno> alunos = new ArrayList<>();
 	
-	void adicionarAluno(List<Aluno> alunos) {
-		this.alunos.addAll(alunos);
+	void adicionarAluno(Aluno aluno) {
+		this.alunos.add(aluno);
 	}
 
 	public Long getId() {

@@ -7,5 +7,6 @@ import br.com.totvs.gateway.domain.turma.Turma;
 
 @Repository
 public interface TurmaRepository extends JpaRepository<Turma, Long> {
-
+	
+	
 }

@@ -36,7 +36,7 @@ public class Aluno {
 	private Long idade;
 	
 	void adicionarTurma(List<Turma> turmas) {
-		this.turma.addAll(turma);
+		this.turma.addAll(turmas);
 	}
 	
 

@@ -23,6 +23,7 @@ public class TurmaDTOBuilder {
 		return TurmaDTO.builder()
 		.alunosDTO(AlunoDTOBuilder.builder().build(turma.getAluno()))
 		.disciplina(turma.getDisciplina())
+		.id(turma.getId())
 		.build();
 		
 		

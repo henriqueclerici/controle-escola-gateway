@@ -2,6 +2,8 @@ package br.com.totvs.gateway.application.turma;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,7 @@ public class TurmaFacadeImpl implements TurmaFacade {
 	}
 
 	@Override
+	@Transactional
 	public TurmaDTO cadastrarTurma(TurmaCommand turmaCommand) throws ControleEscolaException {
 		log.info("Iniciou a inclusão de uma turma", AlunoFacadeImp.class);
 		try {
@@ -40,6 +43,7 @@ public class TurmaFacadeImpl implements TurmaFacade {
 	}
 
 	@Override
+	@Transactional
 	public TurmaDTO alterarTurma(TurmaCommand turmaCommand) throws ControleEscolaException {
 		log.info("Iniciou alteração de uma turma");
 		try {
@@ -65,6 +69,7 @@ public class TurmaFacadeImpl implements TurmaFacade {
 	}
 
 	@Override
+	@Transactional
 	public void excluirTurmas() throws ControleEscolaException {
 		log.info("Iniciou a exclusão das turmas", AlunoFacadeImp.class);
 		try {

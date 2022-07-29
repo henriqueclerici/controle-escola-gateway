@@ -1,4 +1,6 @@
 br\com\totvs\gateway\application\aluno\AlunoCommand.class
+br\com\totvs\gateway\application\MatricularAlunoDTO.class
+br\com\totvs\gateway\application\RemoverAlunoDTO$RemoverAlunoDTOBuilder.class
 br\com\totvs\gateway\application\exception\ControleEscolaException.class
 br\com\totvs\gateway\application\aluno\AlunoDTOBuilder$1.class
 br\com\totvs\gateway\application\turma\TurmaFacade.class
@@ -8,6 +10,7 @@ br\com\totvs\gateway\application\turma\TurmaDTO$TurmaDTOBuilder.class
 br\com\totvs\gateway\application\aluno\AlunoFacade.class
 br\com\totvs\gateway\application\turma\TurmaDTOBuilder$1.class
 br\com\totvs\gateway\application\ControleEscolaFacade.class
+br\com\totvs\gateway\application\RemoverAlunoDTO.class
 br\com\totvs\gateway\domain\aluno\AlunoService.class
 br\com\totvs\gateway\domain\turma\TurmaServiceImpl.class
 br\com\totvs\gateway\application\turma\TurmaDTO.class
@@ -21,9 +24,11 @@ br\com\totvs\gateway\application\aluno\AlunoFacadeImp.class
 br\com\totvs\gateway\domain\turma\Turma.class
 br\com\totvs\gateway\application\turma\TurmaCommand.class
 br\com\totvs\gateway\application\aluno\AlunoCommand$AlunoCommandBuilder.class
+br\com\totvs\gateway\application\MatricularAlunoDTO$MatricularAlunoDTOBuilder.class
 br\com\totvs\gateway\domain\aluno\Aluno.class
 br\com\totvs\gateway\application\aluno\AlunoDTO$AlunoDTOBuilder.class
 br\com\totvs\gateway\domain\aluno\AlunoFactory.class
 br\com\totvs\gateway\infra\repositoy\AlunoRepository.class
 br\com\totvs\gateway\application\turma\TurmaDTOBuilder.class
 br\com\totvs\gateway\application\turma\TurmaCommand$TurmaCommandBuilder.class
+br\com\totvs\gateway\application\ControleEscolaFacadeImpl.class

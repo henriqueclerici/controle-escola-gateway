@@ -4,6 +4,9 @@ D:\projetos\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\to
 D:\projetos\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\dto\MatricularAlunoRequest.java
 D:\projetos\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\ControleEscolaApplication.java
 D:\projetos\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\controller\ControleEscolaTurmaAlunoRest.java
+D:\projetos\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\dto\RemoverAlunoRequest.java
+D:\projetos\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\builder\MatriculaAlunoDTOBuilder.java
+D:\projetos\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\builder\RemoverAlunoDTOBuilder.java
 D:\projetos\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\swagger\SwaggerConfig.java
 D:\projetos\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\builder\TurmaResponseBuilder.java
 D:\projetos\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\exception\ControleEscolaInternalException.java
