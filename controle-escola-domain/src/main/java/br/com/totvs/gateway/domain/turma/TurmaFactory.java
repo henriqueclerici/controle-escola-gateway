@@ -22,8 +22,6 @@ public class TurmaFactory {
 		Turma turma = new Turma();
 		turma.setId(command.getId());
 		turma.setDisciplina(command.getDisciplina());
-		turma.setDataLimiteInscricao(command.getDataLimiteInscricao());
-		turma.setDataInicio(command.getDataInicio());
 		turma.setAluno(criarListaAluno(command.getAlunosCommand()));
 		return turma;
 

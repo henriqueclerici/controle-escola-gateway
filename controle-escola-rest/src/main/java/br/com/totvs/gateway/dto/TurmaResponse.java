@@ -1,7 +1,9 @@
 package br.com.totvs.gateway.dto;
 
-import java.util.Date;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,10 +21,7 @@ public class TurmaResponse {
 	
 	private String disciplina;
 	
-	private Date dataInicio;
-	
-	private Date dataLimiteInscricao;
-	
+	@JsonInclude(Include.NON_NULL)
 	private List<AlunoResponse> alunos;
 
 }

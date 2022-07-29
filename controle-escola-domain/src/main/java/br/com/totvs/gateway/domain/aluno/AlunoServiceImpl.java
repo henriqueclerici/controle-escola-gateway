@@ -11,16 +11,14 @@ import lombok.Getter;
 
 @Service
 @Getter
-public class AlunoServiceImpl implements AlunoService{
-	
+public class AlunoServiceImpl implements AlunoService {
+
 	private final AlunoRepository alunoRepository;
-	
+
 	@Autowired
 	public AlunoServiceImpl(final AlunoRepository alunoRepository) {
 		this.alunoRepository = alunoRepository;
 	}
-	
-	
 
 	@Override
 	public void cadastrarAluno(Aluno aluno) throws ControleEscolaException {
@@ -32,16 +30,15 @@ public class AlunoServiceImpl implements AlunoService{
 		return getAlunoRepository().findAll();
 	}
 
-
-
 	@Override
 	public void excluirAluno() {
 		getAlunoRepository().deleteAll();
-		
+
 	}
 
-	
-
-	
+	@Override
+	public Aluno alterarAluno(Aluno aluno) throws ControleEscolaException {
+		return getAlunoRepository().save(aluno);
+	}
 
 }

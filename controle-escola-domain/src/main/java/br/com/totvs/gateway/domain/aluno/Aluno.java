@@ -23,9 +23,10 @@ public class Aluno {
 
 	@Id
 	@GeneratedValue
+	@Column(name = "aluno_id")
 	private Long id;
 	
-    @ManyToMany(mappedBy = "alunos")	
+    @ManyToMany(mappedBy = "alunos", fetch = FetchType.EAGER)	
 	private List<Turma> turma = new ArrayList<>();
 
 	private String cpf;

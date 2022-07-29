@@ -18,6 +18,6 @@ public class AlunoRequest {
 	private String nome;
 	
 	private Long idade;
-	
+	 
 
 }

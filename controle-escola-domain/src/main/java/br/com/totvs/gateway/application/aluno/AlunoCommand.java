@@ -23,6 +23,6 @@ public class AlunoCommand {
 	
 	private Long idade;
 	
-	//private List<TurmaCommand> turmaCommand;
+	private List<TurmaCommand> turmaCommand;
 
 }

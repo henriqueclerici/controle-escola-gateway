@@ -20,12 +20,19 @@ public class AlunoCommandBuilder {
 	
 	
 	public AlunoCommand build(AlunoRequest alunoRequest) {
+		if (null == alunoRequest.getCpf()) {
+			throw new IllegalArgumentException("Favor informar o CPF");
+		} else if (null == alunoRequest.getNome()) {
+			throw new IllegalArgumentException("Favor informar o Nome");
+		} else if (null == alunoRequest.getIdade()) {
+			throw new IllegalArgumentException("Favor informar a Idade");
+		}
+		
 		return AlunoCommand.builder()
 		.cpf(alunoRequest.getCpf())
 		.id(alunoRequest.getId())
 		.idade(alunoRequest.getIdade())
 		.nome(alunoRequest.getNome())
-	//	.turmaCommand(TurmaCommandBuilder.builder().build(alunoRequest.getTurma()))
 		.build();
 		
 		

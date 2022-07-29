@@ -22,9 +22,6 @@ public class TurmaResponseBuilder {
 	public TurmaResponse build(TurmaDTO turmaDTO) {
 		return TurmaResponse.builder()
 	    .id(turmaDTO.getId())
-		.dataInicio(turmaDTO.getDataInicio())
-		.dataLimiteInscricao(turmaDTO.getDataLimiteInscricao())
-		.disciplina(turmaDTO.getDisciplina())
 		.alunos(AlunoResponseBuilder.builder().build(turmaDTO.getAlunosDTO()))
 		.build();
 		

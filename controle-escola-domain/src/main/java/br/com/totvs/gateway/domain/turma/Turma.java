@@ -15,27 +15,25 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import br.com.totvs.gateway.domain.aluno.Aluno;
 
 @Entity
+@Table(name = "TURMA")
 public class Turma {
 	@Id
 	@GeneratedValue
+	@Column(name = "turma_id")
 	private Long id;
 
 	private String disciplina;
 
-	private Date dataInicio;
-
-	private Date dataLimiteInscricao;
-
-	@ManyToMany
-	@JsonIgnore
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
-			name = "aluno_turmas",
+			name = "ALUNO_TURMAS",
 			joinColumns = @JoinColumn(name = "turma_id"),
 			inverseJoinColumns = @JoinColumn(name = "aluno_id")
 			)
@@ -55,22 +53,6 @@ public class Turma {
 
 	public void setDisciplina(String disciplina) {
 		this.disciplina = disciplina;
-	}
-
-	public Date getDataInicio() {
-		return dataInicio;
-	}
-
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
-	}
-
-	public Date getDataLimiteInscricao() {
-		return dataLimiteInscricao;
-	}
-
-	public void setDataLimiteInscricao(Date dataLimiteInscricao) {
-		this.dataLimiteInscricao = dataLimiteInscricao;
 	}
 
 	public List<Aluno> getAluno() {

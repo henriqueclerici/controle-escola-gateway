@@ -10,6 +10,8 @@ public interface AlunoFacade {
 	
 	public List<AlunoDTO> listarAlunos() throws ControleEscolaException;
 
-	public void excluirAluno();
+	public void excluirAluno() throws ControleEscolaException;
+
+	public AlunoDTO alterarAluno(AlunoCommand build) throws ControleEscolaException;
 
 }

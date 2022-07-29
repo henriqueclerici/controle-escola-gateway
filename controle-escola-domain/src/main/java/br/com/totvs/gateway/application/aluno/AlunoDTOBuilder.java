@@ -25,7 +25,7 @@ public class AlunoDTOBuilder {
 		.id(aluno.getId())
 		.idade(aluno.getIdade())
 		.nome(aluno.getNome())
-		//.turma(TurmaDTOBuilder.builder().build(aluno.getTurma()))
+		.turma(TurmaDTOBuilder.builder().build(aluno.getTurma()))
 		.build();
 		
 		

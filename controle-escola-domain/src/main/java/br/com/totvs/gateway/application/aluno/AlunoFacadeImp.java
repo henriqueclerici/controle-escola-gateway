@@ -11,16 +11,17 @@ import br.com.totvs.gateway.application.exception.ControleEscolaException;
 import br.com.totvs.gateway.domain.aluno.Aluno;
 import br.com.totvs.gateway.domain.aluno.AlunoFactory;
 import br.com.totvs.gateway.domain.aluno.AlunoService;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Slf4j
+@Getter
 public class AlunoFacadeImp implements AlunoFacade {
-	
+
 	private final AlunoService service;
-	
-	
-    @Autowired
+
+	@Autowired
 	public AlunoFacadeImp(final AlunoService service) {
 		this.service = service;
 	}
@@ -29,22 +30,55 @@ public class AlunoFacadeImp implements AlunoFacade {
 	@Transactional
 	public AlunoDTO cadastrarAluno(AlunoCommand command) throws ControleEscolaException {
 		log.info("Iniciou a inclusão do aluno", AlunoFacadeImp.class);
-		Aluno aluno = AlunoFactory.builder().criarAluno(command);
-		service.cadastrarAluno(aluno);
-		return AlunoDTOBuilder.builder().build(aluno);
+		try {
+			Aluno aluno = AlunoFactory.builder().criarAluno(command);
+			service.cadastrarAluno(aluno);
+			return AlunoDTOBuilder.builder().build(aluno);
+		} catch (Exception e) {
+			log.error("Erro na hora de buscar um aluno");
+			throw new IllegalArgumentException("Erro na hora de buscar um aluno", e);
+
+		}
 	}
 
 	@Override
 	public List<AlunoDTO> listarAlunos() throws ControleEscolaException {
-		log.info("Iniciou a busca por todos os alunos", AlunoFacadeImp.class);
-		return AlunoDTOBuilder.builder().build(service.listarAlunos());
+		log.info("Iniciou a busca dos alunos");
+		try {
+			log.info("Iniciou a busca por todos os alunos", AlunoFacadeImp.class);
+			List<Aluno> listaAluno = service.listarAlunos();
+			return AlunoDTOBuilder.builder().build(listaAluno);
+		} catch (Exception e) {
+			log.error("Erro na hora de buscar um aluno", e);
+			throw new IllegalArgumentException("Erro na hora de buscar um aluno", e);
+
+		}
+
 	}
 
 	@Override
-	public void excluirAluno() {
+	public void excluirAluno() throws ControleEscolaException {
 		log.info("Iniciou a exclusão de uma aluno", AlunoFacadeImp.class);
-		service.excluirAluno();
-		
+		try {
+			service.excluirAluno();
+		} catch (Exception e) {
+			log.error("Erro na hora de buscar um aluno", e);
+			throw new IllegalArgumentException("Erro na hora de buscar um aluno", e);
+
+		}
+	}
+
+	@Override
+	public AlunoDTO alterarAluno(AlunoCommand alunoCommand) throws ControleEscolaException {
+		log.info("Iniciou alteração de um usuário");
+		try {
+			Aluno aluno = AlunoFactory.builder().criarAluno(alunoCommand);
+			return AlunoDTOBuilder.builder().build(getService().alterarAluno(aluno));
+		} catch (Exception e) {
+			log.error("Erro na hora de buscar um aluno", e);
+			throw new IllegalArgumentException("Erro na hora de buscar um aluno", e);
+		}
+
 	}
 
 }

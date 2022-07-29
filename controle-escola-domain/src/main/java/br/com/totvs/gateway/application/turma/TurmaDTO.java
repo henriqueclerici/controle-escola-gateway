@@ -1,6 +1,5 @@
 package br.com.totvs.gateway.application.turma;
 
-import java.util.Date;
 import java.util.List;
 
 import br.com.totvs.gateway.application.aluno.AlunoDTO;
@@ -18,11 +17,7 @@ public class TurmaDTO {
 	private Long id;
 
 	private String disciplina;
-
-	private Date dataInicio;
-
-	private Date dataLimiteInscricao;
-
+	
 	private List<AlunoDTO> alunosDTO;
 
 }

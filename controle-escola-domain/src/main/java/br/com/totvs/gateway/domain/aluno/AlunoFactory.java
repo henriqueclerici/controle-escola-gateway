@@ -24,7 +24,7 @@ public class AlunoFactory {
 		aluno.setId(command.getId());
 		aluno.setIdade(command.getIdade());
 		aluno.setNome(command.getNome());
-	//	aluno.setTurma(criarListaTurma(command.getTurmaCommand()));
+		aluno.setTurma(criarListaTurma(command.getTurmaCommand()));
 		return aluno;
 		
 	}

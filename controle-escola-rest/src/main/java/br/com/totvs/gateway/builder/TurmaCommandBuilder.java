@@ -21,11 +21,8 @@ public class TurmaCommandBuilder {
 	
 	public TurmaCommand build(TurmaRequest turmaRequest) {
 		return TurmaCommand.builder()
-		.id(turmaRequest.getId())		
-		.dataInicio(turmaRequest.getDataInicio())
-		.dataLimiteInscricao(turmaRequest.getDataLimiteInscricao())
+		.id(turmaRequest.getId())
 		.disciplina(turmaRequest.getDisciplina())
-		.alunosCommand(AlunoCommandBuilder.builder().build(turmaRequest.getAlunos()))
 		.build();
 		
 		

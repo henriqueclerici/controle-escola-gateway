@@ -46,7 +46,8 @@ public class ControleEscolaAlunoRest {
 			AlunoDTO alunoDto = facade.cadastrarAluno(AlunoCommandBuilder.builder().build(alunoRequest));
 			return ResponseEntity.ok(AlunoResponseBuilder.builder().build(alunoDto));
 		} catch (Exception e) {
-			log.error("Erro na inclusão do aluno");
+			// o tratamento da exception poderia ser melhor com retorno para o usuário
+			log.error("Erro na inclusão do aluno", e);
 			throw new IllegalArgumentException("Erro na inclusão do aluno", e);
 
 		}
@@ -58,11 +59,11 @@ public class ControleEscolaAlunoRest {
 	public ResponseEntity<AlunoResponse> alterarAluno(@RequestBody AlunoRequest alunoRequest)
 			throws ControleEscolaException {
 		try {
-			log.info("Iniciou a inclusão de um aluno -> ", alunoRequest);
-			AlunoDTO alunoDto = facade.cadastrarAluno(AlunoCommandBuilder.builder().build(alunoRequest));
+			log.info("Iniciou a alteração de um aluno -> ", alunoRequest);
+			AlunoDTO alunoDto = facade.alterarAluno(AlunoCommandBuilder.builder().build(alunoRequest));
 			return ResponseEntity.ok(AlunoResponseBuilder.builder().build(alunoDto));
 		} catch (Exception e) {
-			log.error("Erro na inclusão do aluno");
+			log.error("Erro na inclusão do aluno", e);
 			throw new IllegalArgumentException("Erro na inclusão do aluno", e);
 
 		}
@@ -76,7 +77,7 @@ public class ControleEscolaAlunoRest {
 			List<AlunoDTO> alunoDto = facade.listarAlunos();
 			return ResponseEntity.ok(AlunoResponseBuilder.builder().build(alunoDto));
 		} catch (Exception e) {
-			log.error("Erro ao buscar alunos do aluno");
+			log.error("Erro ao buscar alunos do aluno", e);
 			throw new IllegalArgumentException("Erro ao buscar alunos", e);
 
 		}
@@ -96,7 +97,7 @@ public class ControleEscolaAlunoRest {
 		    facade.excluirAluno();
 			return ResponseEntity.ok(HttpStatus.OK);
 		} catch (Exception e) {
-			log.error("Erro ao excluir um aluno");
+			log.error("Erro ao excluir um aluno", e);
 			throw new IllegalArgumentException("Erro ao excluir um aluno", e);
 
 		}

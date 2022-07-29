@@ -10,6 +10,8 @@ public interface AlunoService {
 
 	public List<Aluno> listarAlunos() throws ControleEscolaException;
 
-	public void excluirAluno();
+	public void excluirAluno() throws ControleEscolaException;
+
+	public Aluno alterarAluno(Aluno aluno) throws ControleEscolaException;
 
 }

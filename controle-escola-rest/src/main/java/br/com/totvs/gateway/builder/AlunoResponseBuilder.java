@@ -25,7 +25,7 @@ public class AlunoResponseBuilder {
 		.id(alunoDTO.getId())
 		.idade(alunoDTO.getIdade())
 		.nome(alunoDTO.getNome())
-		//.turma(TurmaResponseBuilder.builder().build(alunoDTO.getTurma()))
+		.listaTurma(TurmaResponseBuilder.builder().build(alunoDTO.getTurma()))
 		.build();
 		
 		

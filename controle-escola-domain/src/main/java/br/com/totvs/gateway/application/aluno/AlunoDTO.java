@@ -23,6 +23,6 @@ public class AlunoDTO {
 
 	private Long idade;
 
-	//private List<TurmaDTO> turma;
+	private List<TurmaDTO> turma;
 
 }

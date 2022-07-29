@@ -22,8 +22,6 @@ public class TurmaDTOBuilder {
 	public TurmaDTO build(Turma turma) {
 		return TurmaDTO.builder()
 		.alunosDTO(AlunoDTOBuilder.builder().build(turma.getAluno()))
-		.dataInicio(turma.getDataInicio())
-		.dataLimiteInscricao(turma.getDataLimiteInscricao())
 		.disciplina(turma.getDisciplina())
 		.build();
 		
