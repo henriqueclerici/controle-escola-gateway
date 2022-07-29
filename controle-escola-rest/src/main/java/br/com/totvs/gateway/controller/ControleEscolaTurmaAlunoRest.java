@@ -29,64 +29,42 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RequestMapping("/escola/aluno-turma")
 public class ControleEscolaTurmaAlunoRest {
-	
 
 	private final ControleEscolaFacade facade;
-	
+
 	@Autowired
-	public ControleEscolaTurmaAlunoRest(final ControleEscolaFacade facade)  {
+	public ControleEscolaTurmaAlunoRest(final ControleEscolaFacade facade) {
 		super();
 		this.facade = facade;
 	}
-	
-	
+
 	@PostMapping(value = "/matricular")
-	public ResponseEntity<AlunoResponse> matricular(@RequestBody MatricularAlunoRequest request) throws ControleEscolaException{
-		try {
-			log.info("Iniciou a matricula do aluno -> ", request);
-			AlunoDTO alunoDto = facade.matricular(MatriculaAlunoDTOBuilder.builder().build(request));
-			return ResponseEntity.ok(AlunoResponseBuilder.builder().build(alunoDto));
-		} catch (Exception e) {
-			// o tratamento da exception poderia ser melhor com retorno para o usuário
-			log.error("Erro ao matricular o aluno", e);
-			throw new IllegalArgumentException("Erro ao matricular o aluno", e);
+	public ResponseEntity<AlunoResponse> matricular(@RequestBody MatricularAlunoRequest request)
+			throws br.com.totvs.gateway.application.exception.ControleEscolaException {
 
-		}
-		
+		log.info("Iniciou a matricula do aluno -> ", request);
+		AlunoDTO alunoDto = facade.matricular(MatriculaAlunoDTOBuilder.builder().build(request));
+		return ResponseEntity.ok(AlunoResponseBuilder.builder().build(alunoDto));
+
 	}
-	
+
 	@PostMapping(value = "/remover-matricula")
-	public ResponseEntity<TurmaResponse> removerMatricula(@RequestBody RemoverAlunoRequest request) throws ControleEscolaException{
-		try {
-			log.info("Iniciou a remoção do aluno -> ", request);
-			TurmaDTO turmaDTO = facade.removerAluno(RemoverAlunoDTOBuilder.builder().build(request));
-			return ResponseEntity.ok(TurmaResponseBuilder.builder().build(turmaDTO));
-		} catch (Exception e) {
-			// o tratamento da exception poderia ser melhor com retorno para o usuário
-			log.error("Erro ao remover o aluno", e);
-			throw new IllegalArgumentException("Erro ao remover o aluno", e);
+	public ResponseEntity<TurmaResponse> removerMatricula(@RequestBody RemoverAlunoRequest request)
+			throws br.com.totvs.gateway.application.exception.ControleEscolaException {
 
-		}
-		
+		log.info("Iniciou a remoção do aluno -> ", request);
+		TurmaDTO turmaDTO = facade.removerAluno(RemoverAlunoDTOBuilder.builder().build(request));
+		return ResponseEntity.ok(TurmaResponseBuilder.builder().build(turmaDTO));
+
 	}
-	
-	
+
 	@GetMapping(value = "/buscar-turma-alunos/{id}")
-	public ResponseEntity<List<TurmaResponse>> buscarTurmaDoAluno(@PathVariable Long id) throws ControleEscolaException{
-		try {
-			log.info("Iniciou a busca das turmas dos alunos -> ", id);
-			List<TurmaDTO> turmaDTO = facade.buscarTurmaDoAluno(id);
-			return ResponseEntity.ok(TurmaResponseBuilder.builder().build(turmaDTO));
-		} catch (Exception e) {
-			// o tratamento da exception poderia ser melhor com retorno para o usuário
-			log.error("Erro ao  buscar as turmas dos alunos", e);
-			throw new IllegalArgumentException("Erro ao buscar as turmas dos alunos", e);
+	public ResponseEntity<List<TurmaResponse>> buscarTurmaDoAluno(@PathVariable Long id)
+			throws br.com.totvs.gateway.application.exception.ControleEscolaException {
+		log.info("Iniciou a busca das turmas dos alunos -> ", id);
+		List<TurmaDTO> turmaDTO = facade.buscarTurmaDoAluno(id);
+		return ResponseEntity.ok(TurmaResponseBuilder.builder().build(turmaDTO));
 
-		}
-		
 	}
-	
-	
-	
 
 }

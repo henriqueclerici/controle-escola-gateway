@@ -40,68 +40,51 @@ public class ControleEscolaAlunoRest {
 	@PostMapping(value = "/cadastrar")
 	@ApiOperation(value = "Método para cadastrar um aluno")
 	public ResponseEntity<AlunoResponse> cadastrarAluno(@RequestBody AlunoRequest alunoRequest)
-			throws ControleEscolaException {
-		try {
-			log.info("Iniciou a inclusão de um aluno -> ", alunoRequest);
-			AlunoDTO alunoDto = facade.cadastrarAluno(AlunoCommandBuilder.builder().build(alunoRequest));
-			return ResponseEntity.ok(AlunoResponseBuilder.builder().build(alunoDto));
-		} catch (Exception e) {
-			// o tratamento da exception poderia ser melhor com retorno para o usuário
-			log.error("Erro na inclusão do aluno", e);
-			throw new IllegalArgumentException("Erro na inclusão do aluno", e);
+			throws br.com.totvs.gateway.application.exception.ControleEscolaException {
 
-		}
+		log.info("Iniciou a inclusão de um aluno -> ", alunoRequest);
+		AlunoDTO alunoDto = facade.cadastrarAluno(AlunoCommandBuilder.builder().build(alunoRequest));
+		return ResponseEntity.ok(AlunoResponseBuilder.builder().build(alunoDto));
 
 	}
-	
+
 	@PostMapping(value = "/alterar")
 	@ApiOperation(value = "Método para alterar um aluno")
 	public ResponseEntity<AlunoResponse> alterarAluno(@RequestBody AlunoRequest alunoRequest)
-			throws ControleEscolaException {
-		try {
-			log.info("Iniciou a alteração de um aluno -> ", alunoRequest);
-			AlunoDTO alunoDto = facade.alterarAluno(AlunoCommandBuilder.builder().build(alunoRequest));
-			return ResponseEntity.ok(AlunoResponseBuilder.builder().build(alunoDto));
-		} catch (Exception e) {
-			log.error("Erro na inclusão do aluno", e);
-			throw new IllegalArgumentException("Erro na inclusão do aluno", e);
+			throws br.com.totvs.gateway.application.exception.ControleEscolaException {
 
-		}
+		log.info("Iniciou a alteração de um aluno -> ", alunoRequest);
+		AlunoDTO alunoDto = facade.alterarAluno(AlunoCommandBuilder.builder().build(alunoRequest));
+		return ResponseEntity.ok(AlunoResponseBuilder.builder().build(alunoDto));
 
 	}
-	
+
 	@GetMapping(value = "/listar-aluno")
-	public ResponseEntity<List<AlunoResponse>> listarAlunos() throws ControleEscolaException{
-		try {
-			log.info("Iniciou a busca de todos os alunos");
-			List<AlunoDTO> alunoDto = facade.listarAlunos();
-			return ResponseEntity.ok(AlunoResponseBuilder.builder().build(alunoDto));
-		} catch (Exception e) {
-			log.error("Erro ao buscar alunos do aluno", e);
-			throw new IllegalArgumentException("Erro ao buscar alunos", e);
+	public ResponseEntity<List<AlunoResponse>> listarAlunos()
+			throws br.com.totvs.gateway.application.exception.ControleEscolaException {
 
-		}
-		
+		log.info("Iniciou a busca de todos os alunos");
+		List<AlunoDTO> alunoDto = facade.listarAlunos();
+		return ResponseEntity.ok(AlunoResponseBuilder.builder().build(alunoDto));
+
 	}
-	
-	/** TODO
-	 * Poderia fazer uma verificação para não deixar excluir caso ele já estivesse vinculado
+
+	/**
+	 * TODO Poderia fazer uma verificação para não deixar excluir caso ele já
+	 * estivesse vinculado
+	 * 
 	 * @param id
 	 * @return
 	 * @throws ControleEscolaException
 	 */
 	@PostMapping(value = "/excluir-aluno")
-	public ResponseEntity<HttpStatus> excluirAluno() throws ControleEscolaException{
-		try {
-			log.info("Iniciou a exclusão de um aluno");
-		    facade.excluirAluno();
-			return ResponseEntity.ok(HttpStatus.OK);
-		} catch (Exception e) {
-			log.error("Erro ao excluir um aluno", e);
-			throw new IllegalArgumentException("Erro ao excluir um aluno", e);
+	public ResponseEntity<HttpStatus> excluirAluno()
+			throws br.com.totvs.gateway.application.exception.ControleEscolaException {
 
-		}
-		
+		log.info("Iniciou a exclusão de um aluno");
+		facade.excluirAluno();
+		return ResponseEntity.ok(HttpStatus.OK);
+
 	}
 
 }

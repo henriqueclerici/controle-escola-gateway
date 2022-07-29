@@ -30,81 +30,62 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/escola/turma")
 @Slf4j
 public class ControleEscolaTurmaRest {
-	
+
 	private final TurmaFacade facade;
-	
+
 	@Autowired
 	public ControleEscolaTurmaRest(final TurmaFacade facade) {
 		this.facade = facade;
 	}
-	
-	
-	
+
 	@PostMapping(value = "/cadastrar")
 	@ApiOperation(value = "Método para cadastrar a turma")
 	public ResponseEntity<TurmaResponse> cadastrarTurma(@RequestBody TurmaRequest turmaRequest)
-			throws ControleEscolaException {
-		try {
-			log.info("Iniciou a inclusão de uma turma -> ", turmaRequest);
-			TurmaDTO turmaDTO = facade.cadastrarTurma(TurmaCommandBuilder.builder().build(turmaRequest));
-			return ResponseEntity.ok(TurmaResponseBuilder.builder().build(turmaDTO));
-		} catch (Exception e) {
-			// o tratamento da exception poderia ser melhor com retorno para a turma
-			log.error("Erro na inclusão da turma", e);
-			throw new IllegalArgumentException("Erro na inclusão da turma", e);
+			throws br.com.totvs.gateway.application.exception.ControleEscolaException {
 
-		}
+		log.info("Iniciou a inclusão de uma turma -> ", turmaRequest);
+		TurmaDTO turmaDTO = facade.cadastrarTurma(TurmaCommandBuilder.builder().build(turmaRequest));
+		return ResponseEntity.ok(TurmaResponseBuilder.builder().build(turmaDTO));
 
 	}
-	
+
 	@PostMapping(value = "/alterar")
 	@ApiOperation(value = "Método para alterar a turma")
 	public ResponseEntity<TurmaResponse> alterar(@RequestBody TurmaRequest turmaRequest)
-			throws ControleEscolaException {
-		try {
-			log.info("Iniciou a alteração da turma -> ", turmaRequest);
-			TurmaDTO turmaDTO = facade.alterarTurma(TurmaCommandBuilder.builder().build(turmaRequest));
-			return ResponseEntity.ok(TurmaResponseBuilder.builder().build(turmaDTO));
-		} catch (Exception e) {
-			log.error("Erro na alteração da turma", e);
-			throw new IllegalArgumentException("Erro na alteração da turma", e);
+			throws br.com.totvs.gateway.application.exception.ControleEscolaException {
 
-		}
+		log.info("Iniciou a alteração da turma -> ", turmaRequest);
+		TurmaDTO turmaDTO = facade.alterarTurma(TurmaCommandBuilder.builder().build(turmaRequest));
+		return ResponseEntity.ok(TurmaResponseBuilder.builder().build(turmaDTO));
 
 	}
-	
+
 	@GetMapping(value = "/listar-turma")
-	public ResponseEntity<List<TurmaResponse>> listarTurmas() throws ControleEscolaException{
-		try {
-			log.info("Iniciou a busca das turmas");
-			List<TurmaDTO> turmaDTO = facade.listarTurmas();
-			return ResponseEntity.ok(TurmaResponseBuilder.builder().build(turmaDTO));
-		} catch (Exception e) {
-			log.error("Erro ao buscar as  turmas", e);
-			throw new IllegalArgumentException("Erro ao buscar as turmas", e);
+	public ResponseEntity<List<TurmaResponse>> listarTurmas()
+			throws br.com.totvs.gateway.application.exception.ControleEscolaException {
 
-		}
-		
+		log.info("Iniciou a busca das turmas");
+		List<TurmaDTO> turmaDTO = facade.listarTurmas();
+		return ResponseEntity.ok(TurmaResponseBuilder.builder().build(turmaDTO));
+
 	}
-	
-	/** TODO
-	 * Poderia fazer uma verificação para não deixar excluir caso ele já estivesse vinculado
+
+	/**
+	 * TODO Poderia fazer uma verificação para não deixar excluir caso ele já
+	 * estivesse vinculado
+	 * 
 	 * @param id
 	 * @return
 	 * @throws ControleEscolaException
 	 */
 	@PostMapping(value = "/excluir-turma")
-	public ResponseEntity<HttpStatus> excluirTurmas() throws ControleEscolaException{
-		try {
-			log.info("Iniciou a exclusão das turmas");
-		    facade.excluirTurmas();
-			return ResponseEntity.ok(HttpStatus.OK);
-		} catch (Exception e) {
-			log.error("Erro ao excluir as turmas", e);
-			throw new IllegalArgumentException("Erro ao excluir as turmas", e);
+	public ResponseEntity<HttpStatus> excluirTurmas()
+			throws br.com.totvs.gateway.application.exception.ControleEscolaException {
 
-		}
-		
+		log.info("Iniciou a exclusão das turmas");
+		facade.excluirTurmas();
+		return ResponseEntity.ok(HttpStatus.OK);
+
 	}
 
 }
