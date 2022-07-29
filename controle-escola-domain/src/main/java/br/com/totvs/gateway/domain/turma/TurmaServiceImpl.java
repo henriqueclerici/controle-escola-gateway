@@ -64,7 +64,7 @@ public class TurmaServiceImpl implements TurmaService {
 	@Override
 	public Turma buscarTurmaRemoverAluno(Long idTurma, Aluno aluno) throws ControleEscolaException {
 		Optional<Turma> optional = getRepository().findById(idTurma);
-		if (optional.isEmpty()) {
+		if (!optional.isPresent()) {
 			throw new IllegalArgumentException("Não foi possível encontrar a turma do aluno");
 		}
 		Turma turma = optional.get();
