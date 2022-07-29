@@ -20,6 +20,9 @@ public class TurmaCommandBuilder {
 	
 	
 	public TurmaCommand build(TurmaRequest turmaRequest) {
+		if(null == turmaRequest.getDisciplina()) {
+			throw new IllegalArgumentException("Favor informar a disciplina");
+		}
 		return TurmaCommand.builder()
 		.id(turmaRequest.getId())
 		.disciplina(turmaRequest.getDisciplina())
