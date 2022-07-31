@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MatricularAlunoRequest {
 	
-	private Long id;
+	private Long idAluno;
 
-	private List<TurmaRequest> listaTurma;
+	private List<Long> idTurmas;
 
 }

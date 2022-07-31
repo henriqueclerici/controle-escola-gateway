@@ -2,4 +2,5 @@ br\com\totvs\gateway\controller\ControleEscolaAlunoRestTest.class
 br\com\totvs\gateway\aluno\AlunoFactoryTest.class
 br\com\totvs\gateway\controller\ControleEscolaTurmaAlunoRestTest.class
 br\com\totvs\gateway\controller\ControleEscolaTurmaRestTest.class
+br\com\totvs\gateway\SecretariaFactoryTest.class
 br\com\totvs\gateway\turma\TurmaFactoryTest.class

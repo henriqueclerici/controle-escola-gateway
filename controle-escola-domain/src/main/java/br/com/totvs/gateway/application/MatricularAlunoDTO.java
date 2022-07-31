@@ -14,8 +14,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MatricularAlunoDTO {
 	
-	private Long id;
+	private Long idAluno;
 
-	private List<TurmaCommand> listaTurma;
+	private List<Long> idTurmas;
 
 }

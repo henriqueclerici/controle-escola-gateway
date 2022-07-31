@@ -32,12 +32,17 @@ public class Turma {
 	private String disciplina;
 
 	@ManyToMany(fetch = FetchType.EAGER)
+	@JsonIgnore
 	@JoinTable(
 			name = "ALUNO_TURMAS",
 			joinColumns = @JoinColumn(name = "turma_id"),
 			inverseJoinColumns = @JoinColumn(name = "aluno_id")
 			)
 	private List<Aluno> alunos = new ArrayList<>();
+	
+	public void removerAluno(Long idAluno) {
+		this.getAluno().removeIf(a -> a.getId().equals(idAluno));
+	}
 	
 	void adicionarAluno(Aluno aluno) {
 		this.alunos.add(aluno);

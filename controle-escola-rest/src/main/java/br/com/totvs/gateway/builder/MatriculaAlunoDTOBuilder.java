@@ -21,8 +21,8 @@ public class MatriculaAlunoDTOBuilder {
 	
 	public MatricularAlunoDTO build(MatricularAlunoRequest matricularAlunoRequest) {
 		return MatricularAlunoDTO.builder()
-		 .id(matricularAlunoRequest.getId())
-		 .listaTurma(TurmaCommandBuilder.builder().build(matricularAlunoRequest.getListaTurma()))
+		 .idAluno(matricularAlunoRequest.getIdAluno())
+		 .idTurmas(matricularAlunoRequest.getIdTurmas())
 		 .build();
 		
 		

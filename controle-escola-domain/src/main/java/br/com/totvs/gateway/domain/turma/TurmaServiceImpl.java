@@ -68,7 +68,7 @@ public class TurmaServiceImpl implements TurmaService {
 			throw new IllegalArgumentException("Não foi possível encontrar a turma do aluno");
 		}
 		Turma turma = optional.get();
-		turma.getAluno().removeIf(a -> a.getId().equals(aluno.getId()));
+		turma.removerAluno(aluno.getId());
 		return turma;
 	}
 

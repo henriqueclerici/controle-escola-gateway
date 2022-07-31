@@ -8,10 +8,10 @@ import br.com.totvs.gateway.application.turma.TurmaDTO;
 
 public interface ControleEscolaFacade {
 
-	AlunoDTO matricular(MatricularAlunoDTO build) throws ControleEscolaException;
+	List<SecretariaDTO> matricular(MatricularAlunoDTO build) throws ControleEscolaException;
 
-	TurmaDTO removerAluno(RemoverAlunoDTO build) throws ControleEscolaException;
+	SecretariaDTO removerAluno(RemoverAlunoDTO build) throws ControleEscolaException;
 
-	List<TurmaDTO> buscarTurmaDoAluno(Long id) throws ControleEscolaException;
+	List<SecretariaDTO> buscarTurmaDoAluno(Long id) throws ControleEscolaException;
 
 }

@@ -1,12 +1,16 @@
 D:\teste\controle-escola-gateway\controle-escola-domain\src\main\java\br\com\totvs\gateway\domain\turma\TurmaService.java
 D:\teste\controle-escola-gateway\controle-escola-domain\src\main\java\br\com\totvs\gateway\application\turma\TurmaFacade.java
+D:\teste\controle-escola-gateway\controle-escola-domain\src\main\java\br\com\totvs\gateway\application\SecretariaDTO.java
 D:\teste\controle-escola-gateway\controle-escola-domain\src\main\java\br\com\totvs\gateway\application\ControleEscolaFacadeImpl.java
+D:\teste\controle-escola-gateway\controle-escola-domain\src\main\java\br\com\totvs\gateway\application\SecretariaAlunoDTOBuilder.java
 D:\teste\controle-escola-gateway\controle-escola-domain\src\main\java\br\com\totvs\gateway\application\turma\TurmaDTOBuilder.java
 D:\teste\controle-escola-gateway\controle-escola-domain\src\main\java\br\com\totvs\gateway\application\MatricularAlunoDTO.java
 D:\teste\controle-escola-gateway\controle-escola-domain\src\main\java\br\com\totvs\gateway\domain\turma\Turma.java
+D:\teste\controle-escola-gateway\controle-escola-domain\src\main\java\br\com\totvs\gateway\application\SecretariaDTOBuilder.java
 D:\teste\controle-escola-gateway\controle-escola-domain\src\main\java\br\com\totvs\gateway\application\exception\ControleEscolaInternalException.java
 D:\teste\controle-escola-gateway\controle-escola-domain\src\main\java\br\com\totvs\gateway\domain\aluno\AlunoService.java
 D:\teste\controle-escola-gateway\controle-escola-domain\src\main\java\br\com\totvs\gateway\infra\repositoy\AlunoRepository.java
+D:\teste\controle-escola-gateway\controle-escola-domain\src\main\java\br\com\totvs\gateway\application\SecretariaAlunoDTO.java
 D:\teste\controle-escola-gateway\controle-escola-domain\src\main\java\br\com\totvs\gateway\application\turma\TurmaDTO.java
 D:\teste\controle-escola-gateway\controle-escola-domain\src\main\java\br\com\totvs\gateway\domain\aluno\Aluno.java
 D:\teste\controle-escola-gateway\controle-escola-domain\src\main\java\br\com\totvs\gateway\domain\aluno\AlunoFactory.java

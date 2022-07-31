@@ -1,11 +1,15 @@
 D:\teste\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\exception\ControleEscolaInternalException.java
+D:\teste\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\builder\SecretariaAlunoResponseBuilder.java
 D:\teste\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\builder\TurmaResponseBuilder.java
 D:\teste\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\controller\ControleEscolaTurmaRest.java
+D:\teste\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\dto\SecretariaAlunoResponse.java
 D:\teste\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\config\GlobalControllerExceptionHandler.java
 D:\teste\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\swagger\SwaggerConfig.java
+D:\teste\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\builder\SecretariaResponseBuilder.java
 D:\teste\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\dto\TurmaResponse.java
 D:\teste\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\builder\RemoverAlunoDTOBuilder.java
 D:\teste\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\dto\MatricularAlunoRequest.java
+D:\teste\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\dto\SecretariaResponse.java
 D:\teste\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\controller\ControleEscolaAlunoRest.java
 D:\teste\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\controller\ControleEscolaTurmaAlunoRest.java
 D:\teste\controle-escola-gateway\controle-escola-rest\src\main\java\br\com\totvs\gateway\ControleEscolaApplication.java

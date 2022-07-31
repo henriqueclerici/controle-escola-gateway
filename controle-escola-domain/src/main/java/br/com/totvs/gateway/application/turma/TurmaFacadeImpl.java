@@ -30,7 +30,7 @@ public class TurmaFacadeImpl implements TurmaFacade {
 	@Override
 	@Transactional
 	public TurmaDTO cadastrarTurma(TurmaCommand turmaCommand) throws ControleEscolaException {
-		log.info("Iniciou a inclusão de uma turma", AlunoFacadeImp.class);
+		log.info("Iniciou a inclusão de uma turma", TurmaFacadeImpl.class);
 		try {
 			Turma turma = TurmaFactory.builder().criarTurma(turmaCommand);
 			service.cadastrarTurma(turma);
@@ -71,7 +71,7 @@ public class TurmaFacadeImpl implements TurmaFacade {
 	@Override
 	@Transactional
 	public void excluirTurmas() throws ControleEscolaException {
-		log.info("Iniciou a exclusão das turmas", AlunoFacadeImp.class);
+		log.info("Iniciou a exclusão das turmas", TurmaFacadeImpl.class);
 		try {
 			service.excluirTurma();
 		} catch (Exception e) {

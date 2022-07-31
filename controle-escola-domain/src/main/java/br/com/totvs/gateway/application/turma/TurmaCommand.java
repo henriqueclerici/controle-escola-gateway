@@ -23,6 +23,4 @@ public class TurmaCommand {
 
 	private Date dataLimiteInscricao;
 
-	private List<AlunoCommand> alunosCommand;
-
 }

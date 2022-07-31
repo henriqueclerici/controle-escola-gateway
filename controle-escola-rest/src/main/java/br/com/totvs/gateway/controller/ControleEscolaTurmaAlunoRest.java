@@ -12,22 +12,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.totvs.gateway.application.ControleEscolaFacade;
-import br.com.totvs.gateway.application.aluno.AlunoDTO;
-import br.com.totvs.gateway.application.turma.TurmaDTO;
-import br.com.totvs.gateway.builder.AlunoResponseBuilder;
+import br.com.totvs.gateway.application.SecretariaDTO;
 import br.com.totvs.gateway.builder.MatriculaAlunoDTOBuilder;
 import br.com.totvs.gateway.builder.RemoverAlunoDTOBuilder;
-import br.com.totvs.gateway.builder.TurmaResponseBuilder;
-import br.com.totvs.gateway.dto.AlunoResponse;
+import br.com.totvs.gateway.builder.SecretariaResponseBuilder;
 import br.com.totvs.gateway.dto.MatricularAlunoRequest;
 import br.com.totvs.gateway.dto.RemoverAlunoRequest;
-import br.com.totvs.gateway.dto.TurmaResponse;
-import br.com.totvs.gateway.exception.ControleEscolaException;
+import br.com.totvs.gateway.dto.SecretariaResponse;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @Slf4j
 @RequestMapping("/escola/aluno-turma")
+@Api(value = "Rest Utilizado para realizar rotinas de uma escola")
 public class ControleEscolaTurmaAlunoRest {
 
 	private final ControleEscolaFacade facade;
@@ -39,31 +38,34 @@ public class ControleEscolaTurmaAlunoRest {
 	}
 
 	@PostMapping(value = "/matricular")
-	public ResponseEntity<AlunoResponse> matricular(@RequestBody MatricularAlunoRequest request)
+	@ApiOperation(value = "Método utilizado para matricular um aluno a uma lista de turma informando seus ids")
+	public ResponseEntity<List<SecretariaResponse>> matricular(@RequestBody MatricularAlunoRequest request)
 			throws br.com.totvs.gateway.application.exception.ControleEscolaException {
 
 		log.info("Iniciou a matricula do aluno -> ", request);
-		AlunoDTO alunoDto = facade.matricular(MatriculaAlunoDTOBuilder.builder().build(request));
-		return ResponseEntity.ok(AlunoResponseBuilder.builder().build(alunoDto));
+		List<SecretariaDTO> listSecretariaDTO = facade.matricular(MatriculaAlunoDTOBuilder.builder().build(request));
+		return ResponseEntity.ok(SecretariaResponseBuilder.builder().build(listSecretariaDTO));
 
 	}
 
 	@PostMapping(value = "/remover-matricula")
-	public ResponseEntity<TurmaResponse> removerMatricula(@RequestBody RemoverAlunoRequest request)
+	@ApiOperation(value = "Método utilizado para remover um aluno de um turma, informando seus ids")
+	public ResponseEntity<SecretariaResponse> removerMatricula(@RequestBody RemoverAlunoRequest request)
 			throws br.com.totvs.gateway.application.exception.ControleEscolaException {
 
 		log.info("Iniciou a remoção do aluno -> ", request);
-		TurmaDTO turmaDTO = facade.removerAluno(RemoverAlunoDTOBuilder.builder().build(request));
-		return ResponseEntity.ok(TurmaResponseBuilder.builder().build(turmaDTO));
+		SecretariaDTO secretariaDTO = facade.removerAluno(RemoverAlunoDTOBuilder.builder().build(request));
+		return ResponseEntity.ok(SecretariaResponseBuilder.builder().build(secretariaDTO));
 
 	}
 
-	@GetMapping(value = "/buscar-turma-alunos/{id}")
-	public ResponseEntity<List<TurmaResponse>> buscarTurmaDoAluno(@PathVariable Long id)
+	@GetMapping(value = "/buscar-turma-alunos/{idAluno}")
+	@ApiOperation("Método utlizado para buscar as turmas do aluno utilizando o idAluno ")
+	public ResponseEntity<List<SecretariaResponse>> buscarTurmaDoAluno(@PathVariable Long idAluno)
 			throws br.com.totvs.gateway.application.exception.ControleEscolaException {
-		log.info("Iniciou a busca das turmas dos alunos -> ", id);
-		List<TurmaDTO> turmaDTO = facade.buscarTurmaDoAluno(id);
-		return ResponseEntity.ok(TurmaResponseBuilder.builder().build(turmaDTO));
+		log.info("Iniciou a busca das turmas dos alunos -> ", idAluno);
+		List<SecretariaDTO> listSecretariaDTO = facade.buscarTurmaDoAluno(idAluno);
+		return ResponseEntity.ok(SecretariaResponseBuilder.builder().build(listSecretariaDTO));
 
 	}
 

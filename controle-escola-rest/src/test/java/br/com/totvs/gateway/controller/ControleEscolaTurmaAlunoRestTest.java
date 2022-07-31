@@ -17,6 +17,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import br.com.totvs.gateway.SecretariaFactoryTest;
 import br.com.totvs.gateway.aluno.AlunoFactoryTest;
 import br.com.totvs.gateway.application.ControleEscolaFacade;
 import br.com.totvs.gateway.application.MatricularAlunoDTO;
@@ -53,10 +54,10 @@ public class ControleEscolaTurmaAlunoRestTest {
 	@Test
 	public void testMatricularAluno() throws Exception {
 		MatricularAlunoRequest request = new MatricularAlunoRequest();
-		request.setId(1L);
-		request.setListaTurma(Arrays.asList(new TurmaRequest(1L, "ti")));
+		request.setIdAluno(1L);
+		request.setIdTurmas(Arrays.asList(1L));
 		MatricularAlunoDTO matricularAlunoDTO = MatriculaAlunoDTOBuilder.builder().build(request);
-		Mockito.when(facade.matricular(matricularAlunoDTO)).thenReturn(AlunoDTOBuilder.builder().build(AlunoFactoryTest.builder().criarAlunoMock()));
+		Mockito.when(facade.matricular(matricularAlunoDTO)).thenReturn(SecretariaFactoryTest.builder().criarListaSecretariaMock());
 
 		this.mockMvc.perform(post(TURMA_ALUNO_CONTROLLER + TURMA_ALUNO_MATRICULAR).contentType(MediaType.APPLICATION_JSON_VALUE)
 				.content(mapper.writeValueAsString(request))).andExpect(status().isOk());
@@ -70,7 +71,7 @@ public class ControleEscolaTurmaAlunoRestTest {
 		
 		RemoverAlunoDTO dto = RemoverAlunoDTOBuilder.builder().build(request);
 		
-		Mockito.when(facade.removerAluno(dto)).thenReturn(TurmaDTOBuilder.builder().build(TurmaFactoryTest.builder().criarTurmaMock()));
+		Mockito.when(facade.removerAluno(dto)).thenReturn(SecretariaFactoryTest.builder().criarSecretariaMock());
 		this.mockMvc.perform(post(TURMA_ALUNO_CONTROLLER + TURMA_ALUNO_REMOVER_MATRICULAR).contentType(MediaType.APPLICATION_JSON_VALUE)
 				.content(mapper.writeValueAsString(request))).andExpect(status().isOk());
 	}
@@ -79,7 +80,7 @@ public class ControleEscolaTurmaAlunoRestTest {
 	@Test
 	public void testBuscarTurmaDoAluno() throws Exception {
 		
-		Mockito.when(facade.buscarTurmaDoAluno(1L)).thenReturn(TurmaDTOBuilder.builder().build(TurmaFactoryTest.builder().criarListaTurmaMock()));
+		Mockito.when(facade.buscarTurmaDoAluno(1L)).thenReturn(SecretariaFactoryTest.builder().criarListaSecretariaMock());
 
 		this.mockMvc.perform(get(TURMA_ALUNO_CONTROLLER + TURMA_ALUNO_BUSCAR).contentType(MediaType.APPLICATION_JSON_VALUE)
 				).andExpect(status().isOk());
