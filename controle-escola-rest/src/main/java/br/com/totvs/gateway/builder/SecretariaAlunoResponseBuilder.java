@@ -23,7 +23,7 @@ public class SecretariaAlunoResponseBuilder {
 		return SecretariaAlunoResponse.builder()
 		.cpfAluno(secretariaAlunoDTO.getCpfAluno())
 		.idAluno(secretariaAlunoDTO.getIdAluno())
-		.nomeAluno(secretariaAlunoDTO.getCpfAluno())
+		.nomeAluno(secretariaAlunoDTO.getNomeAluno())
 		.build();
 		
 		
